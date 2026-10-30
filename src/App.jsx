@@ -26,6 +26,8 @@ import {
 } from "./content.js";
 gsap.registerPlugin(ScrollTrigger);
 
+const media = (filename) => `${import.meta.env.BASE_URL}media/${filename}`;
+
 const go = (id) =>
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 const Words = ({ text, cls = "" }) =>
@@ -144,17 +146,17 @@ function Hero() {
         <video
           ref={vid}
           className="bg"
-          src="/media/hero.mp4"
+          src={media("hero.mp4")}
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          poster="/media/poster.jpg"
+          poster={media("poster.jpg")}
           onError={() => setFailed(true)}
         />
       )}
-      {failed && <img className="bg" src="/media/poster.jpg" alt="" />}
+      {failed && <img className="bg" src={media("poster.jpg")} alt="" />}
       <div className="shade" />
       <div className="hero-inner">
         <p className="kicker">Independent developer, Kurdistan, Iraq</p>

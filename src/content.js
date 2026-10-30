@@ -18,6 +18,7 @@ export const nav = [
   ["Skills", "skills"],
   ["Contact", "contact"],
 ];
+const media = (filename) => `${import.meta.env.BASE_URL}media/${filename}`;
 export const highlights = [
   [
     "Creative Development",
@@ -42,7 +43,7 @@ export const projects = [
     art: "coffee",
     text: "A café website with a menu, special offers, photo gallery, table reservation form and contact section.",
     tags: ["Café", "Reservations", "Website"],
-    image: "/media/coffee.jpg",
+    image: media("coffee.jpg"),
     live: "https://jabarabdalla0-create.github.io/coffe-shop/",
     code: "",
     hue: "#EC4899",
@@ -52,7 +53,7 @@ export const projects = [
     art: "estate",
     text: "A real estate platform for the Kurdistan Region with property search, city map, language and currency switching, and a mortgage calculator.",
     tags: ["Real estate", "Multi-language", "Calculator"],
-    image: "/media/estate.jpg",
+    image: media("estate.jpg"),
     live: "https://jabarabdalla0-create.github.io/real-estate/",
     code: "",
     hue: "#3B82F6",
@@ -62,7 +63,7 @@ export const projects = [
     art: "barber",
     text: "A website for a barber shop that presents the business online.",
     tags: ["Barber", "Website"],
-    image: "/media/barber.jpg",
+    image: media("barber.jpg"),
     live: "https://barber0.rf.gd/?i=1",
     code: "",
     hue: "#7C3AED",
@@ -72,7 +73,7 @@ export const projects = [
     art: "game",
     text: "An interactive game project built for the web.",
     tags: ["Game", "Web"],
-    image: "/media/game.jpg",
+    image: media("game.jpg"),
     live: "https://kurdgame.free.je/",
     code: "",
     hue: "#3B82F6",
