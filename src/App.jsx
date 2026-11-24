@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Intro from "./intro.jsx";
 import {
   ArrowUpRight,
   ArrowUp,
@@ -542,9 +543,14 @@ function Footer() {
 }
 
 export default function App() {
+  const [showIntro, setShowIntro] = useState(true);
+
   const root = useRef(null),
     [active, setActive] = useState("home");
+
   useEffect(() => {
+    if (showIntro || !root.current) return;
+
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
@@ -713,7 +719,12 @@ export default function App() {
       io.disconnect();
       removeEventListener("load", refresh);
     };
-  }, []);
+  }, [showIntro]);
+
+  if (showIntro) {
+    return <Intro onComplete={() => setShowIntro(false)} />;
+  }
+
   return (
     <div ref={root}>
       <a className="skip" href="#about">

@@ -1,0 +1,89 @@
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #07070a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8%;
+  overflow: hidden;
+
+  animation: introFadeIn 0.5s ease forwards;
+  transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
+  will-change: transform;
+}
+
+.intro-screen.intro-leaving {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.intro-line {
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-weight: 700;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.intro-line.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-line:nth-child(3) {
+  color: #a78bfa;
+}
+
+.intro-line:nth-child(4) {
+  color: #999;
+}
+
+.intro-skip {
+  position: absolute;
+  right: 8%;
+  bottom: 8%;
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 13px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.intro-skip:hover {
+  color: #fff;
+}
+
+.intro-skip span {
+  margin-left: 8px;
+}
+
+@keyframes introFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-screen,
+  .intro-line {
+    transition-duration: 0.01ms;
+    animation-duration: 0.01ms;
+  }
+}
